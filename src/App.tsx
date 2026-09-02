@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { AudioVisualizer } from '@teslawillow/cool-music-waves';
 import { Play, Pause, Upload, Disc, Radio, Activity, Orbit, Box } from 'lucide-react';
 
+import Header from './components/Header';
+
 type Mode = 'circular' | 'bars' | 'spectrumBars' | 'tunnel' | 'sphere3d';
 
 export const App: React.FC = () => {
@@ -42,26 +44,7 @@ export const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#09090b] text-zinc-100 flex flex-col justify-between p-6 md:p-12">
       {/* Header */}
-      <header className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-zinc-800 pb-6">
-        <div>
-          <h1 className="text-3xl font-bold tracking-tight bg-gradient-to-r from-teal-400 via-emerald-400 to-cyan-500 bg-clip-text text-transparent">
-            cool-music-waves
-          </h1>
-          <p className="text-sm text-zinc-400 mt-1">
-            Interactive audio visualizer powered by Canvas 2D, WebGL, and Three.js
-          </p>
-        </div>
-        <div className="flex items-center gap-3">
-          <a
-            href="https://www.npmjs.com/package/@teslawillow/cool-music-waves"
-            target="_blank"
-            rel="noreferrer"
-            className="px-4 py-2 text-xs font-mono bg-zinc-900 border border-zinc-700 hover:border-zinc-500 rounded-lg transition-colors"
-          >
-            npm i @teslawillow/cool-music-waves
-          </a>
-        </div>
-      </header>
+      <Header />
 
       {/* Main Canvas Viewport */}
       <main className="my-8 flex-1 flex flex-col items-center justify-center relative">
@@ -74,7 +57,7 @@ export const App: React.FC = () => {
           />
 
           {/* Overlay Controls inside Canvas */}
-          <div className="absolute top-4 right-4 flex items-center gap-2 bg-zinc-900/80 backdrop-blur-md p-2 rounded-xl border border-zinc-800">
+          <div className="absolute top-4 right-4 flex items-center gap-2 bg-zinc-900/80 backdrop-blur-md p-2 rounded-xl border border-zinc-800 hidden">
             <span className="text-xs text-zinc-400 px-2 font-medium">Color:</span>
             <input
               type="color"
